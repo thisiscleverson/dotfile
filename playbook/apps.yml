@@ -1,0 +1,10 @@
+--
+- name: Instalação inicial do sistema
+  hosts: localhost
+
+  tasks:
+    - name: instalação do emacs
+      become: yes
+      package:
+	state: present
+  	name: emacs

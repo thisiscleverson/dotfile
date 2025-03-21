@@ -1,0 +1,17 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: nolink
+  link_on_import: nolink
+  longkey: false
+dotfiles:
+  f_init.el:
+    src: emacs.d/init.el
+    dst: ~/.emacs.d/init.el
+profiles:
+  fedora-de-lord-cleverson:
+    dotfiles:
+    - f_init.el
