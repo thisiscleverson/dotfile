@@ -1,0 +1,38 @@
+---
+- name: Instalação de ferramentas de coding
+  hosts: localhost
+
+  tasks:
+    - name: Install pipx
+      become: yes
+      package:
+        name: pipx
+        state: present
+
+    - name: config pipx
+      become: yes
+      shell: pipx ensurepath
+
+     # Poetry nao esta sendo instalado pelo pipx!
+    - name: Install poetry
+      community.general.pipx:
+        name: poetry
+	state: present
+
+      # mypy nao esta sendo instalado pelo pipx!
+    - name: Install mypy
+      community.general.pipx:
+        name: mypy
+	state: present
+    
+    - name: Install Podman
+      become: yes
+      package:
+        name: podman
+        state: present
+	
+    - name: Install podman-compose
+      become: yes
+      package:
+        name: podman-compose
+        state: present

@@ -1,0 +1,59 @@
+---
+- name: Instalação dos programas com GUI
+  hosts: localhost
+
+  tasks:
+    - name: Install Peek
+      become: yes
+      package:
+        name: peek
+        state: present
+
+    - name: Install Gnome Feeds
+      become: yes
+      package:
+        name: gnome-feeds 
+        state: present
+
+    - name: Install Gnome Tweaks
+      become: yes
+      package:
+	name: gnome-tweaks
+	state: present
+
+    - name: Install Okular
+      become: yes
+      package:
+	name: okular
+	state: present
+
+    - name: Install Discord
+      become: yes
+      package:
+        name: discord
+        state: present
+
+    - name: Install Typora
+      community.general.flatpak:
+	name: io.typora.Typora
+    	state: present
+
+    - name: Install ONLYOFFICE
+      community.general.flatpak:
+	name: org.onlyoffice.desktopeditors
+    	state: present
+
+    - name: Install Obsidian
+      community.general.flatpak:
+	name: md.obsidian.Obsidian
+    	state: present
+
+    - name: Install Solanum
+      community.general.flatpak:
+	name: org.gnome.Solanum
+    	state: present
+
+    - name: Install Planify
+      community.general.flatpak:
+	name: io.github.alainm23.planify
+    	state: present

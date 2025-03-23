@@ -1,0 +1,22 @@
+---
+- name: Instalação inicial do sistema
+  hosts: localhost
+
+  tasks:
+    - name: Install GNU/Emacs
+      become: yes
+      package:
+        name: emacs
+        state: present
+
+    - name: Install Terminator
+      become: yes
+      package:
+        name: terminator
+        state: present
+    
+    - name: Install Codium
+      become: yes
+      package:
+        name: codium
+        state: present

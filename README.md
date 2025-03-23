@@ -1,10 +1,25 @@
-# My Dotfiles
+# My Dotfiles Script
 
-## Ansible-playbook
 
-```shel
 
+## Ansible
+
+Instalar o Ansible 
+```shell
+sudo dnf install ansible -y  # Fedora
 ```
+
+Instalar os collection
+```shell
+ansible-galaxy install -r playbook/requirements.yml
+```
+
+instalar todos os apps/ferramentas
+```shell
+sudo ansible-playbook playbook/tasks.yml
+```
+
+
 
 ## Dotdrop
 
@@ -12,27 +27,30 @@
 
 ```
 
-
+ 
 
 ## TODO
 
-- [ ] instalar Apps
+- [ ] instalar Apps com Ansible
   - [ ] Brave
-  - [ ] Emacs
-  - [ ] Terminator
+  - [x] Emacs P
+  - [x] Terminator P
   - [ ] Insominia
-  - [ ] Peek
-  - [ ] Planify
-  - [ ] Obsidian
-  - [ ] Vscodium
+  - [x] codium P
+  - [x] Peek 
+  - [x] Planify
+  - [x] Obsidian ?
   - [ ] LibreWolf
-  - [ ] Solanum
-  - [ ] Typora
-  - [ ] Gonome Feeds
+  - [x] Solanum
+  - [x] Typora ? 
+  - [x] Discord
+  - [x] Onlyoffice P 
+  - [x] Gonome Feeds P
   
-- [ ] Pre-confg
+- [ ] geral
   - [ ] Emacs
-  - [ ] Brave
-  - [ ] Typero
   - [ ] Gnomee Feeds
   - [ ] Terminator
+  - [ ] File organizer
+  - [ ] fazer o potry instalar o python
+  - [ ] gnome extenções

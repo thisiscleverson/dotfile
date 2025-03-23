@@ -1,9 +1,0 @@
----
-- hosts: localhost
-  tasks:
-    - ansible.builtin.debug:
-        msg: play1
-
-    - name: gui
-      import_playbook: apps.yml
-

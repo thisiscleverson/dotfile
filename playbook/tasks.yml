@@ -1,0 +1,28 @@
+---
+- hosts: localhost
+  tasks:
+    - name: Update dnf cache
+      when: ansible_pkg_mgr == "dnf"
+      ansible.builtin.dnf:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Enable flatpak repository
+      tags: repository,flatpak
+      community.general.flatpak_remote:
+	name: flathub
+    	flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+    	method: system
+    	state: present
+
+
+- name: work
+  import_playbook: work.yml
+
+- name: gui
+  import_playbook: gui.yml
+
+- name: coding
+  import_playbook: coding.yml
+
+
