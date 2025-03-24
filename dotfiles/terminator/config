@@ -1,0 +1,27 @@
+[global_config]
+  scroll_tabbar = True
+  hide_from_taskbar = True
+  enabled_plugins = LaunchpadBugURLHandler, LaunchpadCodeURLHandler, APTURLHandler, TerminatorThemes
+  detachable_tabs = False
+[keybindings]
+  copy = <Primary>c
+  paste = <Primary>v
+[profiles]
+  [[default]]
+    background_color = "#292a44"
+    font = Monospace 10
+    foreground_color = "#f1eff8"
+    show_titlebar = False
+    scrollbar_position = hidden
+    palette = "#53495d:#698cd9:#6dfedf:#efe4a1:#2de0a7:#7aa5ff:#8eaee0:#f1eff8:#383a62:#ff79c6:#87ffd7:#ffff87:#5fd7af:#5fafff:#afafd7:#ccccff"
+    use_system_font = False
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = Violet Light
+[plugins]
