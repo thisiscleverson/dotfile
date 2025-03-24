@@ -9,9 +9,27 @@ config:
   longkey: false
 dotfiles:
   f_init.el:
-    src: emacs.d/init.el
+    src: emacs/init.el
     dst: ~/.emacs.d/init.el
+  f_config:
+    src: terminator/config
+    dst: ~/.config/terminator/config
+  f_.zshrc:
+    src: zsh/.zshrc
+    dst: ~/.zshrc
+  d_plugins:
+    src: obsidian/plugins
+    dst: ~/Documents/Obsidian Vault/.obsidian/plugins
+  d_themes:
+    src: obsidian/themes
+    dst: ~/Documents/Obsidian Vault/.obsidian/themes
+
+
 profiles:
   fedora-de-lord-cleverson:
     dotfiles:
     - f_init.el
+    - f_config
+    - f_.zshrc
+    - d_plugins
+    - d_themes
