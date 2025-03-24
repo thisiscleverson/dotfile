@@ -1,5 +1,5 @@
 ---
-- name: Instalação inicial do sistema
+- name: Installation of work tools
   hosts: localhost
 
   tasks:
@@ -14,7 +14,30 @@
       package:
         name: terminator
         state: present
+
+    - name: Install ZSH
+      become: yes
+      package:
+        name: zsh
+        state: present
     
+    - name: Make ZSH default shell
+      become: yes
+      user:
+        name: "{{ ansible_env.USER }}"
+        shell: /bin/zsh
+    
+    - name: Download Oh My Zsh Installer
+      get_url:
+        url: "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+        dest: "/tmp/install-ohmyzsh.sh"
+        mode: '0755'
+
+    - name: Install Oh My Zsh
+      shell: "/bin/sh /tmp/install-ohmyzsh.sh --unattended"
+      args:
+        creates: "~/.oh-my-zsh"
+           
     - name: Install Codium
       become: yes
       package:
