@@ -16,7 +16,7 @@ ansible-galaxy install -r playbook/requirements.yml
 
 instalar todos os apps/ferramentas
 ```shell
-sudo ansible-playbook playbook/tasks.yml
+ansible-playbook playbook/tasks.yml --ask-become-pass
 ```
 
 
@@ -46,11 +46,13 @@ sudo ansible-playbook playbook/tasks.yml
   - [x] Discord
   - [x] Onlyoffice P 
   - [x] Gonome Feeds P
+  - [ ] Filer-Organizer
+  - [ ] zsh
+  - [ ] ohmyzsh
   
-- [ ] geral
+- [ ] configs
   - [ ] Emacs
-  - [ ] Gnomee Feeds
   - [ ] Terminator
   - [ ] File organizer
-  - [ ] fazer o potry instalar o python
   - [ ] gnome extenções
+  - [ ] ozh-shell
