@@ -1,0 +1,125 @@
+{% comment %}
+  See: https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#standard-token-types-and-modifiers
+
+  Standard token types:
+  * namespace
+  * class
+  * enum
+  * interface
+  * struct
+  * typeParameter
+  * type
+  * parameter
+  * variable
+  * property
+  * enumMember
+  * decorator
+  * event
+  * function
+  * method
+  * macro
+  * label
+  * comment
+  * string
+  * keyword
+  * number
+  * regexp
+  * operator
+
+  Standard token modifiers:
+  * declaration
+  * definition
+  * readonly
+  * static
+  * deprecated
+  * abstract
+  * async
+  * modification
+  * documentation
+  * defaultLibrary
+
+  Colors are generically assigned using color theme agnostic naming scheme
+  as follows (assuming light mode):
+
+  | base16cs  | alias   | use                                         |
+  | ----------|---------|---------------------------------------------|
+  | 0         | bg_0    | default background                          |
+  | 1         | bg_1    | lighter background                          |
+  | 2         | bg_2    | selection background                        |
+  | 3         | dim_0   | dim foreground (comments, invis chars, etc) |
+  | 4         | fg_0    | lighter foreground                          |
+  | 5         | fg_1    | default foreground                          |
+  | 6         |         | lighter (oft unused)                        |
+  | 7         |         | lightest (oft unused)                       |
+  | 8         | red     |                                             |
+  | 9         | orange  |                                             |
+  | 10        | magenta |                                             |
+  | 11        | green   |                                             |
+  | 12        | cyan    |                                             |
+  | 13        | blue    |                                             |
+  | 14        | yellow  |                                             |
+  | 15        | violet  |                                             |
+
+  Note: Dark mode use the same base color naming scheme, with the lighter/darker
+  semantics reversed.
+
+  When this template is rendered as a partial (i.e. `{% render %}`), it assumes
+  that the above base names are injected as attributes of a `colors` variable.
+  They are reassigned with alias names to make them more readable.
+{% endcomment %}
+{%- assign bg_0 =     base16cs[0] %}
+{%- assign bg_1 =     base16cs[1] %}
+{%- assign bg_2 =     base16cs[2] %}
+{%- assign dim_0 =    base16cs[3] %}
+{%- assign fg_0 =     base16cs[4] %}
+{%- assign fg_1 =     base16cs[5] %}
+{%- assign red =      base16cs[8] %}
+{%- assign orange =   base16cs[9] %}
+{%- assign magenta =  base16cs[10] %}
+{%- assign green =    base16cs[11] %}
+{%- assign cyan =     base16cs[12] %}
+{%- assign blue =     base16cs[13] %}
+{%- assign yellow =   base16cs[14] %}
+{%- assign violet =   base16cs[15] -%}
+{
+  {% comment %}
+    The following token selectors are mapped to fallback TextMate scopes.
+    See: https://code.visualstudio.com/api/language-extensions/semantic-highlight-guide#predefined-textmate-scope-mappings
+    They are currently set with the same color values in token-colors.json.liquid.
+  {% endcomment -%}
+  // Selectors with TextMate scoped token fallback settings.
+  "namespace": "#{{ magenta }}",
+  "type": "#{{ yellow }}",
+  "type.defaultLibrary": { "foreground": "#{{ yellow }}", "italic": true },
+  "struct": "#{{ green }}",
+  "class": "#{{ green }}",
+  "class.defaultLibrary": { "foreground": "#{{ green }}", "italic": true },
+  "interface": "#{{ orange }}",
+  "interface.defaultLibrary": { "foreground": "#{{ orange }}", "italic": true },
+  "enum": "#{{ green }}",
+  "function": "#{{ blue }}",
+  "function.defaultLibrary": "#{{ blue }}",
+  "method": "#{{ blue }}",
+  "macro": "#{{ violet }}",
+  "variable": "#{{ fg_1 }}",
+  "variable.defaultLibrary": "#{{ green }}",
+  "variable.readonly": "#{{ fg_1 }}",
+  "variable.readonly.defaultLibrary": "#{{ orange }}",
+  "parameter": "#{{ fg_1 }}",
+  "property": "#{{ fg_1 }}",
+  "property.readonly": "#{{ fg_1 }}",
+  "enumMember": "#{{ fg_1 }}",
+  "event": "#{{ fg_1 }}",
+
+  "decorator": "#{{ fg_0 }}",
+  "operator": "#{{ fg_0 }}",
+  "variable.mutable": { "underline": true },
+  "const.constant": "#{{ cyan }}",
+  "type.declaration": "#{{ orange }}",
+
+  // Rust
+  "*.attribute:rust": "#{{ fg_0 }}",
+  "derive.library:rust": "#{{ orange }}",
+  "deriveHelper.library:rust": "#{{ orange }}",
+  "string.attribute:rust": "#{{ cyan }}"
+}
