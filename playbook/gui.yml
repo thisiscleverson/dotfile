@@ -1,5 +1,5 @@
 ---
-- name: Instalação dos programas com GUI
+- name: Installing programs with GUI
   hosts: localhost
 
   tasks:
@@ -18,42 +18,41 @@
     - name: Install Gnome Tweaks
       become: yes
       package:
-	name: gnome-tweaks
-	state: present
+        name: gnome-tweaks
+        state: present
 
     - name: Install Okular
       become: yes
       package:
-	name: okular
-	state: present
+        name: okular
+        state: present
 
     - name: Install Discord
-      become: yes
-      package:
-        name: discord
+      community.general.flatpak:
+        name: com.discordapp.Discord
         state: present
 
     - name: Install Typora
       community.general.flatpak:
-	name: io.typora.Typora
-    	state: present
+        name: io.typora.Typora
+        state: present
 
     - name: Install ONLYOFFICE
       community.general.flatpak:
-	name: org.onlyoffice.desktopeditors
-    	state: present
+        name: org.onlyoffice.desktopeditors
+        state: present
 
     - name: Install Obsidian
       community.general.flatpak:
-	name: md.obsidian.Obsidian
-    	state: present
+        name: md.obsidian.Obsidian
+        state: present
 
     - name: Install Solanum
       community.general.flatpak:
-	name: org.gnome.Solanum
-    	state: present
+        name: org.gnome.Solanum
+        state: present
 
     - name: Install Planify
       community.general.flatpak:
-	name: io.github.alainm23.planify
-    	state: present
+        name: io.github.alainm23.planify
+        state: present

@@ -10,10 +10,10 @@
     - name: Enable flatpak repository
       tags: repository,flatpak
       community.general.flatpak_remote:
-	name: flathub
-    	flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
-    	method: system
-    	state: present
+        name: flathub
+        flatpakrepo_url: "https://dl.flathub.org/repo/flathub.flatpakrepo"
+        method: system
+        state: present
 
 
 - name: work
