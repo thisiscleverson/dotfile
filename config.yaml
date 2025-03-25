@@ -26,7 +26,7 @@ dotfiles:
 
 
 profiles:
-  fedora-de-lord-cleverson:
+  cleverson:
     dotfiles:
     - f_init.el
     - f_config
