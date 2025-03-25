@@ -1,0 +1,25 @@
+---
+- name: Configs Extensions
+  hosts: localhost
+
+  tasks:
+    - name: Instalar extensões do VSCodium
+      become: yes
+      shell: "xargs -n1 codium --install-extension < ~/dotfiles/codium/extensions.txt"
+      args:
+        executable: /bin/zsh
+      when: ansible_env.HOME is define
+
+    - name: Install GNOME Extensions Shell
+      become: yes
+      shell: "xargs -n1 gnome-extensions install < ~/dotfiles/gnome/extensions.txt"
+      args:
+        executable: /bin/zsh
+      when: ansible_env.HOME is defined
+
+    - name: Active GNOME Extensions
+      become: yes
+      shell: "xargs -n1 gnome-extensions enable < ~/dotfiles/gnome/extensions.txt"
+      args:
+        executable: /bin/zsh
+      when: ansible_env.HOME is defined 
