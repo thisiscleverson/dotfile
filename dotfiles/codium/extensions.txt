@@ -1,0 +1,10 @@
+adpyke.codesnap
+alefragnani.bookmarks
+bierner.markdown-preview-github-styles
+file-icons.file-icons
+ms-python.debugpy
+ms-python.python
+pkief.material-icon-theme
+sainnhe.gruvbox-material
+santoso-wijaya.helios-selene
+wayou.vscode-todo-highlight
