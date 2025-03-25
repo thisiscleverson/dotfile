@@ -4,37 +4,43 @@ dotfiles_dir="$PWD/dotfiles"
 codium_extensions="$dotfiles_dir/codium/extensions.txt"
 gnome_extensions="$dotfiles_dir/gnome/extensions.txt"
 
-# VSCodium Extension
+
+
 install_vscodium_extensions() {
     if [ -f "$codium_extensions" ]; then
-        echo "Instalando extensões do VSCodium..."
+	echo "⏳ Install VSCodium Extensions..."
         xargs -n1 codium --install-extension < "$codium_extensions"
     else
-        echo "Arquivo de extensões do VSCodium não encontrado!"
+        echo "VSCodium extension file not found! 🥲"
     fi
 }
 
-# Install GNOME Extensions
+
+
 install_gnome_extensions() {
     if [ -f "$gnome_extensions" ]; then
-        echo "Installing GNOME Shell extensions..."
-        xargs -n1 gnome-extensions install < "$gnome_extensions"
+	echo "⏳ Installing Gnome Extensions..."
+
+	GN_CMD_OUTPUT=$(gnome-shell --version)
+        GN_SHELL=${GN_CMD_OUTPUT:12:2}
+        content=$(cat "$gnome_extensions")
+
+        for ext in  $content; do
+            VERSION_LIST_TAG=$(curl -Lfs "https://extensions.gnome.org/extension-query/?search=${ext}" | jq '.extensions[] | select(.uuid=="'"${ext}"'")')
+            VERSION_TAG="$(echo "$VERSION_LIST_TAG" | jq '.shell_version_map |."'"${GN_SHELL}"'" | ."pk"')"
+            wget -O "${ext}".zip "https://extensions.gnome.org/download-extension/${ext}.shell-extension.zip?version_tag=$VERSION_TAG"
+            gnome-extensions install --force "${ext}".zip
+            rm ${ext}.zip
+	done
     else
-        echo "GNOME extensions file not found! 🥲"
+        echo "Gnome extensions file not found! 🥲"
     fi
 }
 
-# Função para ativar extensões do GNOME Shell
-activate_gnome_extensions() {
-    if [ -f "$gnome_extensions" ]; then
-        echo "Activate GNOME Extension ..."
-        xargs -n1 gnome-extensions enable < "$gnome_extensions"
-    fi
-}
 
-# Executar funções
+
 install_vscodium_extensions
 install_gnome_extensions
-activate_gnome_extensions
+
 
 echo "🎉 Settings applied successfully!🎉"
