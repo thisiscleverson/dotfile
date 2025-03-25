@@ -56,3 +56,8 @@
       community.general.flatpak:
         name: io.github.alainm23.planify
         state: present
+
+    - name: Install WaterFox
+      community.general.flatpak:
+        name: net.waterfox.waterfox
+        state: present
