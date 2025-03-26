@@ -389,19 +389,3 @@
 (require 'term)
 (define-key term-mode-map (kbd "C-c") 'term-kill-subjob)
 (define-key term-mode-map (kbd "C-d") 'kill-process)
-
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(lsp-ui lsp-pyright poetry multiple-cursors projectile diff-hl magit swiper vterm-toggle vterm ivy yasnippet which-key try spinner spaceline shell-pop rebecca-theme pyvenv neotree move-text markdown-mode lv jedi ht gruvbox-theme flycheck-inline ergoemacs-mode emmet-mode dashboard company-jedi centaur-tabs auto-complete-chunk all-the-icons ace-window)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
