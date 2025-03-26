@@ -1,4 +1,4 @@
 user-theme@gnome-shell-extensions.gcampax.github.com
 system-monitor@gnome-shell-extensions.gcampax.github.com
 emoji-copy@felipeftn
-background-logo@fedorahosted.org
+drive-menu@gnome-shell-extensions.gcampax.github.com
